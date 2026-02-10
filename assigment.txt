@@ -1,0 +1,56 @@
+Mini app "Instagram Reel Processor"
+
+Backend – Python based
+- REST API service
+- Handles asynchronous processing pipelines
+
+Required features:
+* API:
+  - add a new processing task (Instagram reel URL)
+  - get task status
+    - pending / in progress / completed / failed / cancelled / processing
+  - cancel a task
+  - retrieve text transcript
+
+* Processing pipeline:
+  - download reel video using an external online service
+  - extract audio track from the video
+  - generate text from audio using a speech-to-text service
+  - each step must be executed asynchronously
+
+* Concurrent execution
+  - multiple tasks must be processed in parallel
+  - no blocking calls on the main request thread
+
+
+Frontend – Web based
+- Simple UI (any JS framework or plain JS)
+- Web pages
+  - tasks list page
+  - tasks result page (or just a popup over tasks list)
+  - add task page or dialog
+
+Bonus Requirements
+- Text analysis
+  - detect the language of the generated text
+  - extract key topics from the transcript
+- Workflow engine
+  - use a workflow / pipeline engine or library
+- User management
+  - add authentication (login)
+  - each user has isolated processing tasks
+  - users can only see and manage their own tasks
+- Error handling
+  - invalid or unavailable Reel URLs
+  - external service failures
+  - partial pipeline failures
+
+
+Deliverable
+- Python backend project
+- Frontend project
+- Very simple how-to (txt / md format)
+  - how to run backend
+  - how to run frontend
+  - description of the processing pipeline
+

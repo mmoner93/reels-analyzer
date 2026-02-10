@@ -1,0 +1,16 @@
+back/api/src/api/__pycache__/__init__.cpython-311.pyc
+back/api/src/api/__pycache__/config.cpython-311.pyc
+back/api/src/api/__pycache__/database.cpython-311.pyc
+back/api/src/api/__pycache__/main.cpython-311.pyc
+back/api/src/api/__pycache__/models.cpython-311.pyc
+back/api/src/api/__pycache__/routes.cpython-311.pyc
+back/api/src/api/__pycache__/schemas.cpython-311.pyc
+back/processor/src/processor/__pycache__/__init__.cpython-311.pyc
+back/processor/src/processor/__pycache__/audio_extractor.cpython-311.pyc
+back/processor/src/processor/__pycache__/downloader.cpython-311.pyc
+back/processor/src/processor/__pycache__/tasks.cpython-311.pyc
+back/processor/src/processor/__pycache__/text_analyzer.cpython-311.pyc
+back/processor/src/processor/__pycache__/transcriber.cpython-311.pyc
+back/tests/src/tests/__pycache__/__init__.cpython-311.pyc
+back/tests/src/tests/__pycache__/test_api.cpython-311-pytest-9.0.2.pyc
+back/tests/src/tests/__pycache__/test_processor.cpython-311-pytest-9.0.2.pyc

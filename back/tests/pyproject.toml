@@ -1,0 +1,24 @@
+[project]
+name = "tests"
+version = "0.1.0"
+description = "Tests for Instagram Reel Processor"
+readme = "README.md"
+authors = [
+    { name = "mmoner93", email = "mmoner93@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "api",
+    "processor",
+]
+
+[tool.uv.sources]
+api = { workspace = true }
+processor = { workspace = true }
+
+[project.scripts]
+tests = "tests:main"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"

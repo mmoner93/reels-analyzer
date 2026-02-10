@@ -1,0 +1,23 @@
+[project]
+name = "processor"
+version = "0.1.0"
+description = "Processing pipeline for Instagram Reels"
+readme = "README.md"
+authors = [
+    { name = "mmoner93", email = "mmoner93@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "api",
+    "nltk>=3.8.1",
+]
+
+[tool.uv.sources]
+api = { workspace = true }
+
+[project.scripts]
+processor = "processor:main"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"

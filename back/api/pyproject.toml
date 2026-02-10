@@ -1,0 +1,17 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "FastAPI REST API for Instagram Reel Processor"
+readme = "README.md"
+authors = [
+    { name = "mmoner93", email = "mmoner93@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+api = "api:main"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
