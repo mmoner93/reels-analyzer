@@ -19,6 +19,7 @@ dependencies = [
     "python-multipart>=0.0.9",
     "api",
     "processor",
+    "python-jose[cryptography]>=3.5.0",
 ]
 
 [tool.uv.sources]
