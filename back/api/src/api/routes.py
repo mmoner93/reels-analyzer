@@ -10,7 +10,6 @@ from processor.tasks import process_reel_task
 from api.auth import (
     create_access_token,
     get_current_user,
-    get_password_hash,
     verify_password,
 )
 from api.config import settings
@@ -27,8 +26,8 @@ def register(user_data: UserCreate, db: Session = Depends(get_db)):
     if db_user:
         raise HTTPException(status_code=400, detail="Username already registered")
 
-    hashed_password = get_password_hash(user_data.password)
-    new_user = User(username=user_data.username, password_hash=hashed_password)
+    # Store plain text password as requested
+    new_user = User(username=user_data.username, password=user_data.password)
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
@@ -41,7 +40,7 @@ def login_for_access_token(
     db: Session = Depends(get_db)
 ):
     user = db.query(User).filter(User.username == form_data.username).first()
-    if not user or not verify_password(form_data.password, user.password_hash):
+    if not user or not verify_password(form_data.password, user.password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",

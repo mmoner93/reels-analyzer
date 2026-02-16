@@ -19,9 +19,7 @@ dependencies = [
     "python-multipart>=0.0.9",
     "api",
     "processor",
-    "passlib[bcrypt]>=1.7.4",
     "python-jose[cryptography]>=3.5.0",
-    "argon2-cffi>=25.1.0",
 ]
 
 [tool.uv.sources]
