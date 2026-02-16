@@ -1,8 +1,20 @@
 from datetime import datetime
 from enum import Enum
 
-from sqlalchemy import Column, String, DateTime, Text, Integer
+from sqlalchemy import Column, String, DateTime, Text, Integer, ForeignKey
+from sqlalchemy.orm import relationship
 from api.database import Base
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    password_hash = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    tasks = relationship("Task", back_populates="user")
 
 
 class TaskStatus(str, Enum):
@@ -17,6 +29,7 @@ class Task(Base):
     __tablename__ = "tasks"
 
     id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
     url = Column(String, nullable=False)
     status = Column(String, default=TaskStatus.PENDING)
     transcript = Column(Text, nullable=True)
@@ -25,3 +38,5 @@ class Task(Base):
     topics = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    user = relationship("User", back_populates="tasks")
